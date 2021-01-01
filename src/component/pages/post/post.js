@@ -54,7 +54,6 @@ const Post = () => {
           <small class="text-muted">{condition} </small>
         </blockquote>
       </Container>
-      <Footer/>
     </div>
   );
 };

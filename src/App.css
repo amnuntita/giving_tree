@@ -2,6 +2,28 @@
   color: #61dafb;
 }
 
+/*shared*/
+
+.textbox{
+  padding: 30px;
+}
+
+.footer{
+  min-height: 160px;
+  width: 100%;
+  background-color: lightblue;
+  position:absolute;
+  padding-top: 20px;
+  padding-left: 20px;
+  margin-top: 80px;
+}
+
+.textbox{
+  padding: 30px;
+}
+
+/*carousel*/
+
 .carousel-box{
   display: block;
   max-width: 600px;
@@ -12,18 +34,21 @@
 
 .carousel-i{
   position: absolute;
-  max-height: 100%;
   max-width: 100%;
+  max-height: 100%;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%)
 }
 
-.footer{
-  min-height: 200px;
-  width: 100%;
-  background-color: lightblue;
-  position:absolute;
-  padding-top: 20px;
-  padding-left: 20px;
+/*search*/
+
+.filter{
+  margin-left: 30px;
+  margin-bottom: 10px;
+}
+
+.cardImg{
+  max-height: 100px;
+  width: auto;
 }
