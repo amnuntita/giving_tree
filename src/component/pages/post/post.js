@@ -11,6 +11,8 @@ import MyCarousel from './carousel.js';
 
 const Post = () => {
 
+  const items = ['assets/images/book1.jpg','assets/images/book2.jpg','assets/images/book3.jpg']
+
   return (
     <div>
       <Back />
@@ -22,7 +24,7 @@ const Post = () => {
         Author: Nattapol Jaijing Date:01/02/2020
         <Row style={{ marginTop: 20, marginBottom: 20 }}>
           <Col md={6}>
-           <MyCarousel/>
+           <MyCarousel items={items}/>
           </Col>
           <Col md={1}></Col>
           <Col md={3}>

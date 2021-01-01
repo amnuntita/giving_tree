@@ -1,45 +1,27 @@
 import React from "react";
-import {Carousel} from "react-bootstrap";
+import { Carousel } from "react-bootstrap";
 
-const MyCarousel = () => {
-
-  
+const MyCarousel = (props) => {
+  const items = props.items;
 
   return (
     <div>
-    <Carousel interval={null}>
-    <Carousel.Item>
-    <div className="carousel-box"> 
-      <img
-        className="carousel-i"
-        src="/assets/images/book1.jpg"
-        alt="Second slide"
-      />
-  
-      </div>
-    </Carousel.Item>
-    <Carousel.Item>
-      <div className="carousel-box">
-      <img
-        className="carousel-i"
-        src="/assets/images/book2.jpg"
-        alt="Second slide"
-      />
-  
-      </div>
-    </Carousel.Item>
-    <Carousel.Item>
-    <div className="carousel-box">
-      <img
-        className="carousel-i"
-        src="/assets/images/book3.jpg"
-        alt="Second slide"
-      />
-  
-      </div>
-    </Carousel.Item>
-  </Carousel>
-  </div>
+      <Carousel interval={null}>
+        {items.map((source,index) => {
+          return (
+            <Carousel.Item>
+              <div className="carousel-box">
+                <img
+                  className="carousel-i"
+                  src = {source}
+                  alt= {index+1}
+                />
+              </div>
+            </Carousel.Item>
+          );
+        })}
+      </Carousel>
+    </div>
   );
 };
 
