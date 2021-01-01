@@ -6,22 +6,27 @@ import {
 } from "react-bootstrap";
 
 import Back from "../../shared/BackButton.js";
-import AuthorInfo from './author_info.js';
-import MyCarousel from './carousel.js';
+import AuthorInfo from './AuthorInfo.js';
+import MyCarousel from './Carousel.js';
+import Footer from '../../shared/Footer.js';
 
 const Post = () => {
 
   const items = ['assets/images/book1.jpg','assets/images/book2.jpg','assets/images/book3.jpg']
+  const title = "Give: Physics I Textbooks for Engineering/Science Freshmen Good Condition"
+  const author = "Nattapol Jaijing"
+  const date = "01/02/2020"
+  const condition = "- None / giving for free "
+
 
   return (
     <div>
       <Back />
-      <Container style={{ textAlign: "start" }}>
+      <Container>
         <h3>
-          Give: Physics I Textbooks for Engineering/Science Freshmen Good
-          Condition
+          {title}
         </h3>
-        Author: Nattapol Jaijing Date:01/02/2020
+        Author: {author} Date: {date}
         <Row style={{ marginTop: 20, marginBottom: 20 }}>
           <Col md={6}>
            <MyCarousel items={items}/>
@@ -46,9 +51,10 @@ const Post = () => {
         <h5>Additional condition:</h5>
         <blockquote>
           <h6>Willing to trade</h6>
-          <small class="text-muted">- None / giving for free </small>
+          <small class="text-muted">{condition} </small>
         </blockquote>
       </Container>
+      <Footer/>
     </div>
   );
 };
