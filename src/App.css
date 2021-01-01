@@ -28,15 +28,12 @@
   color: #61dafb;
 }
 
-.carousel{
-  max-height: 400px;
-  max-width: 600px;
-  margin-bottom: 10px;
-}
-
-.carousel > .item {
+.carousel-i{
+  display: block;
+  width: 100%;
   max-height: 500px;
 }
+
 
 @keyframes App-logo-spin {
   from {

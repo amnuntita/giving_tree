@@ -1,35 +1,18 @@
 import React from "react";
-import {
-  Navbar,
-  Nav,
-  NavItem,
-  NavbarBrand,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-} from "reactstrap";
+import { Navbar, Nav,NavDropdown } from "react-bootstrap";
 
 const NavBar = () => {
   return (
-    <Navbar color="light" light expand="md">
-      <NavbarBrand href="/">Giving Tree Project</NavbarBrand>
+    <Navbar bg="light" expand="lg">
+      <Navbar.Brand>Giving Tree</Navbar.Brand>
       <Nav className="mr-auto">
-        <NavItem>
-          <NavLink href="/">FAQ</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink href="/">About</NavLink>
-        </NavItem>
-        <UncontrolledDropdown>
-          <DropdownToggle>Things</DropdownToggle>
-          <DropdownMenu>
-            <DropdownItem>Give</DropdownItem>
-            <DropdownItem>Take</DropdownItem>
-            <DropdownItem>Trade</DropdownItem>
-          </DropdownMenu>
-        </UncontrolledDropdown>
+        <Nav.Link>About</Nav.Link>
+        <Nav.Link>FAQ</Nav.Link>
+        <NavDropdown title="Things">
+          <NavDropdown.Item>Give</NavDropdown.Item>
+          <NavDropdown.Item>Take</NavDropdown.Item>
+          <NavDropdown.Item>Trade</NavDropdown.Item>
+        </NavDropdown>
       </Nav>
     </Navbar>
   );

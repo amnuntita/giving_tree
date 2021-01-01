@@ -1,6 +1,6 @@
 import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
-import Post from "./pages/post.js";
+import { Switch, Route} from "react-router-dom";
+import Post from "./pages/post/post.js";
 import Result from "./pages/result/result.js";
 import Home from "./pages/home/home.js";
 import NavBar from "./shared/NavBar.js";
