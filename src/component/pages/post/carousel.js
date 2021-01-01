@@ -3,13 +3,15 @@ import {Carousel} from "react-bootstrap";
 
 const MyCarousel = () => {
 
+  
+
   return (
     <div>
     <Carousel interval={null}>
     <Carousel.Item>
-    <div className="carousel-box">
+    <div className="carousel-box"> 
       <img
-        className="d-block carousel-i"
+        className="carousel-i"
         src="/assets/images/book1.jpg"
         alt="Second slide"
       />
@@ -19,7 +21,7 @@ const MyCarousel = () => {
     <Carousel.Item>
       <div className="carousel-box">
       <img
-        className="d-block carousel-i"
+        className="carousel-i"
         src="/assets/images/book2.jpg"
         alt="Second slide"
       />
@@ -29,7 +31,7 @@ const MyCarousel = () => {
     <Carousel.Item>
     <div className="carousel-box">
       <img
-        className="d-block carousel-i"
+        className="carousel-i"
         src="/assets/images/book3.jpg"
         alt="Second slide"
       />
