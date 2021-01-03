@@ -8,7 +8,6 @@ import SignUp from "./pages/sign_up.js";
 import LogIn from './pages/log_in.js';
 
 import NavBar from "./shared/NavBar.js";
-import Footer from './shared/Footer.js'
 
 const Main = () => {
   return (
@@ -21,7 +20,6 @@ const Main = () => {
         <Route path="/post" component={Post} />
         <Route path="/" component={Home} />
       </Switch>
-      <Footer/>
     </div>
   );
 };

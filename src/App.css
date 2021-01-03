@@ -1,6 +1,4 @@
-.App{
-  justify-content: center;
-}
+
 .App-link {
   color: #61dafb;
 }
@@ -12,7 +10,7 @@
 }
 
 .footer{
-  min-height: 160px;
+  min-height: 30vh;
   width: 100%;
   position:absolute;
   padding-top: 20px;
@@ -69,4 +67,16 @@
 .about{
   min-height: 350px;
   background-color: #ffb9b2;
+}
+
+/*log in*/
+
+
+.parent{
+  position: absolute;
+  top: 30%;
+  left: 40%;
+  margin-top: -50px;
+  margin-left: -50px;
+  width: 50vw;
 }

@@ -3,6 +3,7 @@ import { Container, Row, Col, Button, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 import ResultCard from "../result/ResultCard.js";
+import Footer from '../../shared/Footer.js';
 
 const Home = () => {
   const loremText =
@@ -16,13 +17,13 @@ const Home = () => {
         </h1>
         {loremText}
         <div>
-        <Link to='/signup'>
-        <Button variant="outline-primary" className="btn">
-            Sign Up
-          </Button>
-        </Link>
+          <Link to="/signup">
+            <Button variant="outline-primary" className="btn">
+              Sign Up
+            </Button>
+          </Link>
         </div>
-        Already have an account? &nbsp; <Link to='/login'>Log In</Link>
+        Already have an account? &nbsp; <Link to="/login">Log In</Link>
       </Col>
       <Col md={4}>
         <Image src="/assets/images/intro.png" className="homeImg" />
@@ -66,15 +67,15 @@ const Home = () => {
 
   const about = () => (
     <div className="about">
-      <Container>
-        <Row className="textbox">
-          <Col>
-            <h3>Why Giving Tree?</h3>
-            <Col>
-              <Image src="assets/images/about1.png" className="homeImg" />
-            </Col>
+      <Container className="textbox">
+        <Row>
+          <h3>Why Giving Tree?</h3>
+        </Row>
+        <Row>
+          <Col md={7}>
+            <Image src="assets/images/about1.png" className="homeImg" />
           </Col>
-          <Col style={{ marginTop: 20 }}>{loremText}</Col>
+          <Col className="textbox">{loremText}</Col>
         </Row>
       </Container>
     </div>
@@ -94,6 +95,7 @@ const Home = () => {
         {new_post("Trade")}
       </Container>
       {about()}
+      <Footer/>
     </div>
   );
 };
