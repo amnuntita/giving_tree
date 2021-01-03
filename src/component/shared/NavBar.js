@@ -1,10 +1,11 @@
 import React from "react";
 import { Navbar, Nav,NavDropdown } from "react-bootstrap";
+import {Link} from 'react-router-dom';
 
 const NavBar = () => {
   return (
     <Navbar bg="light">
-      <Navbar.Brand>Giving Tree</Navbar.Brand>
+      <Navbar.Brand href ="/">Giving Tree</Navbar.Brand>
       <Nav>
         <Nav.Link>About</Nav.Link>
         <Nav.Link>FAQ</Nav.Link>

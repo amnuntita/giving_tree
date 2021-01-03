@@ -1,3 +1,6 @@
+.App{
+  justify-content: center;
+}
 .App-link {
   color: #61dafb;
 }
@@ -11,15 +14,11 @@
 .footer{
   min-height: 160px;
   width: 100%;
-  background-color: lightblue;
   position:absolute;
   padding-top: 20px;
   padding-left: 20px;
   margin-top: 80px;
-}
-
-.textbox{
-  padding: 30px;
+  background-color: rgb(214, 240, 250);
 }
 
 /*carousel*/
@@ -51,4 +50,23 @@
 .cardImg{
   max-height: 100px;
   width: auto;
+}
+
+/*home*/
+
+.homeImg{
+  max-width: 40vw;
+  max-height: 700px;
+
+}
+
+.btn{
+  margin-top: 15px;
+  margin-bottom: 10px;
+  margin-left: 0px;
+}
+
+.about{
+  min-height: 350px;
+  background-color: #ffb9b2;
 }
