@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route} from "react-router-dom";
+import { Switch, Route, BrowserRouter as Router} from "react-router-dom";
 
 import Post from "./pages/post/post.js";
 import Result from "./pages/result/result.js";
@@ -10,17 +10,22 @@ import LogIn from './pages/log_in.js';
 import NavBar from "./shared/NavBar.js";
 
 const Main = () => {
+
+  const post_page = ({match}) => {
+    return(<Post postId={match.params.postId}/>)
+  }
+
   return (
-    <div>
+    <Router>
     <NavBar />
       <Switch>
       <Route path='/login' component={LogIn}/>
         <Route path='/signup' component={SignUp} />
         <Route path="/result" component={Result} />
-        <Route path="/post" component={Post} />
+        <Route path="/post/:postId" component={post_page} />
         <Route path="/" component={Home} />
       </Switch>
-    </div>
+    </Router>
   );
 };
 

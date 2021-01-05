@@ -18,7 +18,7 @@ const getPost = (req, res) => {
 const getContact = (req,res) => {
   const post_id = parseInt(req.params.id);
   pool.query(
-    "SELECT A.contact FROM account A, post P WHERE P.post_id = $1 AND P.account_id = A.id",
+    "SELECT A.username, A.contact FROM account A, post P WHERE P.post_id = $1 AND P.account_id = A.id",
     [post_id],
     (error, results) => {
       if (error) {
@@ -29,19 +29,6 @@ const getContact = (req,res) => {
   );
 };
 
-const getTrade = (req, res) => {
-  const id = parseInt(req.params.id);
-  pool.query(
-    "SELECT trade FROM post WHERE post_id = $1",
-    [id],
-    (error, results) => {
-      if (error) {
-        throw error;
-      }
-      res.status(200).json(results.rows);
-    }
-  );
-};
 
 const getResult = (req, res) => {
   const keyword = "%" + req.params.keyword + "%";
@@ -71,4 +58,4 @@ const getNewPost = (req, res) => {
   );
 };
 
-module.exports = { getPost, getResult, getTrade, getNewPost, getContact };
+module.exports = { getPost, getResult, getNewPost, getContact };

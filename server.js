@@ -12,9 +12,10 @@ app.use(cors())
 
 app.get('/post/:id',query.getPost)
 app.get('/result/:keyword',query.getResult)
-app.get('/trade/:id',query.getTrade)
 app.get('/new_post/:type',query.getNewPost)
 app.get('/contact/:id',query.getContact)
+
+app.use(express.static('public/assets/images'))
 
 
 app.listen(port, () => {

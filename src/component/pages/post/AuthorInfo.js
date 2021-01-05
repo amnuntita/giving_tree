@@ -1,13 +1,39 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 
-const AuthorInfo = () => {
+import BaseUrl from "./../../../BaseUrl.js";
+
+const AuthorInfo = (props) => {
+
+    const postId = props.id;
+    const [contact,setContact] = useState(false)
+    const [username,setUser] = useState('')
+    const [contactList,setList] = useState([])
+
+    useEffect(() => {
+      async function fetchPost() {
+        
+        const res = await fetch(BaseUrl + "/contact/" + postId);
+        res.json()
+        .then((res) => {
+          setContact(res[0])
+          return(contact)
+        })
+        .then((contact) => {
+          setUser(contact.username)
+          return(contact)
+        })
+
+      }
+      fetchPost();
+    },[postId]);
+
 
     return (
         <div>
           <h6>Contact:</h6>
+          {username}
           <ul>
-            <li>Facebook: Nuttapol Kai</li>
-            <li>Line ID: nuttapol1ok</li>
+           
           </ul>
           <h6>Area:</h6>
           <ul>
