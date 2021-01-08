@@ -9,6 +9,11 @@
   padding: 30px;
 }
 
+.wrap{
+  min-height: 100vh;
+  margin-bottom: 20px;
+}
+
 .footer{
   min-height: 30vh;
   width: 100%;
@@ -79,4 +84,9 @@
   margin-top: -50px;
   margin-left: -50px;
   width: 50vw;
+}
+
+.cardSize{
+  height: 12em;
+  overflow: hidden;
 }

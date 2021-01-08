@@ -14,12 +14,12 @@ const Post = (props) => {
 
 
   useEffect(() => {
-    async function fetchPost() {
+    async function fetchData() {
       const res = await fetch(BaseUrl + "/post/" + appId);
       res.json()
       .then((res) => setPost(res[0]))
     }
-    fetchPost();
+    fetchData();
   },[appId]);
 
 
@@ -48,11 +48,12 @@ const Post = (props) => {
           Date Posted: {post.date_posted}
           <Row style={{ marginTop: 20, marginBottom: 20 }}>
             <Col md={6}>
-              <MyCarousel items={items} />
+              <MyCarousel items={post.img} />
             </Col>
-            <Col md={1}></Col>
+            <Col md={1}>
+            </Col>
             <Col md={3}>
-              <AuthorInfo id = {post.post_id} />
+              <AuthorInfo id = {post.post_id} zone={post.zone} />
             </Col>
           </Row>
           <Col md={7} style={{ padding: 0 }}>

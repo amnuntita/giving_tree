@@ -2,7 +2,8 @@ import React from "react";
 import { Container, Row, Col, Button, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-import ResultCard from "../result/ResultCard.js";
+import NewPost from './NewPost.js';
+
 import Footer from '../../shared/Footer.js';
 
 const Home = () => {
@@ -46,25 +47,6 @@ const Home = () => {
     );
   };
 
-  const posts = [
-    <ResultCard i={0} />,
-    <ResultCard i={1} />,
-    <ResultCard i={2} />,
-    <ResultCard i={3} />,
-  ];
-
-  const new_post = (type) => {
-    return (
-      <div style={{ marginBottom: 10 }}>
-        <h4>New Posts - {type}</h4>
-        <Link to="/result" style={{ marginBottom: 10 }}>
-          View All
-        </Link>
-        <Row>{posts}</Row>
-      </div>
-    );
-  };
-
   const about = () => (
     <div className="about">
       <Container className="textbox">
@@ -90,9 +72,9 @@ const Home = () => {
           {lead("Take")}
           {lead("Trade")}
         </Row>
-        {new_post("Give")}
-        {new_post("Take")}
-        {new_post("Trade")}
+        <NewPost cat='g'/>
+        <NewPost cat='t'/>
+        <NewPost cat='tr'/>
       </Container>
       {about()}
       <Footer/>

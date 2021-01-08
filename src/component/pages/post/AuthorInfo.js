@@ -5,9 +5,8 @@ import BaseUrl from "./../../../BaseUrl.js";
 const AuthorInfo = (props) => {
 
     const postId = props.id;
+    const zone = props.zone;
     const [contact,setContact] = useState(false)
-    const [username,setUser] = useState('')
-    const [contactList,setList] = useState([])
 
     useEffect(() => {
       async function fetchPost() {
@@ -18,36 +17,43 @@ const AuthorInfo = (props) => {
           setContact(res[0])
           return(contact)
         })
-        .then((contact) => {
-          setUser(contact.username)
-          return(contact)
-        })
 
       }
       fetchPost();
-    },[postId]);
+    },[postId,contact]);
+
+    const contactList = () => {
+      if (contact){
+        return(Object.keys(contact.contact).map((k) => {
+          return(<li>{k + ": " + contact.contact[k]}</li>)
+        }))
+      }
+      else{
+        return(<div></div>)
+      }
+    }
+
+    const zoneList = () => {
+      if (zone){
+        return(zone.map((z) => {
+          return(<li>{z}</li>)
+        }))
+
+      }
+    }
 
 
     return (
         <div>
           <h6>Contact:</h6>
-          {username}
+          <p>Username: {contact.username}</p>
+          <p>Contact List:</p>
           <ul>
-           
+            {contactList()}
           </ul>
           <h6>Area:</h6>
           <ul>
-            <li>Phaya Tai</li>
-            <li>Sam Yan</li>
-          </ul>
-          <h6>Available period:</h6>
-          <ul>
-            <li>
-              <b>Day:</b>Wed-Fri today-30 December
-            </li>
-            <li>
-              <b>Hour:</b> 4PM - 6PM
-            </li>
+            {zoneList()}
           </ul>
         </div>
       );

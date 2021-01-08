@@ -16,7 +16,8 @@ const Main = () => {
   }
 
   return (
-    <Router>
+    <div className="wrap">
+      <Router>
     <NavBar />
       <Switch>
       <Route path='/login' component={LogIn}/>
@@ -26,6 +27,7 @@ const Main = () => {
         <Route path="/" component={Home} />
       </Switch>
     </Router>
+    </div>
   );
 };
 
