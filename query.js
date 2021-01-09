@@ -31,10 +31,12 @@ const getContact = (req,res) => {
 
 
 const getResult = (req, res) => {
-  const keyword = "%" + req.params.keyword + "%";
+  const q = req.query.q
+  const keyword = "%" + q.toLowerCase() + "%";
+  const type = req.query.c 
   pool.query(
-    "SELECT * FROM post WHERE title LIKE $1",
-    [keyword],
+    "SELECT post_id,post_cat,title,post_detail,img[1] FROM post WHERE LOWER(title) LIKE $1 AND post_cat = $2",
+    [keyword,type],
     (error, results) => {
       if (error) {
         throw error;

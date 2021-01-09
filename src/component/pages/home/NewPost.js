@@ -27,7 +27,7 @@ const NewPost = (props) => {
           <ResultCard
             id={p.post_id}
             title={p.title}
-            content={p.post_detail}
+            detail={p.post_detail}
             img={p.img[0]}
           />
         );
