@@ -2,28 +2,31 @@ import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 
-const SearchField = () => {
-  const [searchValue, setSearch] = useState({
-    keyword: "",
-    cat: "s",
-  });
+const SearchField = (props) => {
+  const [keyword,setKeyword] = useState(props.query?? "")
+  const [cat,setCat] = useState(props.cat?? 0)
 
-
-  let history = useHistory();
-  const submit = () => {
-    history.push("/result/?q=" + searchValue.keyword + "&c=" + searchValue.cat);
-  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (searchValue.keyword === "") {
+    if (keyword === "") {
       alert("Please fill in keyword");
-    } else if (searchValue.cat === "s") {
+    } else if (cat === "s") {
       alert("Please select post type (give, take or trade)");
     } else {
       submit();
     }
   };
+
+  let history = useHistory();
+  const submit = () => {
+    console.log(keyword,cat)
+    let url = "/result/?q=" + keyword + "&c=" + cat
+    if(props.date){ url += "&d="+props.date}
+    if(props.zone){ url += "&z="+props.zone}
+    history.push(url);
+  };
+
 
   return (
     <Form inline>
@@ -32,9 +35,9 @@ const SearchField = () => {
         id="keyword"
         className="mr-sm-4 col-md-4"
         placeholder="search for..."
-        value={searchValue.keyword}
+        value={keyword}
         onChange={(e) =>
-          setSearch((values) => ({ ...values, keyword: e.target.value }))
+          setKeyword(e.target.value)
         }
       />
       <Form.Label className="mr-2">Post type</Form.Label>
@@ -42,9 +45,9 @@ const SearchField = () => {
         as="select"
         className="mr-sm-4 mb-2 mb-sm-0"
         id="cat"
-        value={searchValue.cat}
+        value={cat}
         onChange={(e) =>
-          setSearch((values) => ({ ...values, cat: e.target.value }))
+          setCat(e.target.value)
         }
         custom
       >
@@ -53,9 +56,7 @@ const SearchField = () => {
         <option value="t">Take</option>
         <option value="tr">Trade</option>
       </Form.Control>
-      <Link onClick={handleSubmit} to={"/dummies"}>
-        <Button type="submit">Search</Button>
-      </Link>
+      <Button onClick={handleSubmit} type="submit">Search</Button>
     </Form>
   );
 };

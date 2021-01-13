@@ -13,7 +13,7 @@ const ResultCard = (props) => {
       <Card className="mb-4"> 
         <Card.Img
           variant="top"
-          src={BaseUrl+'/'+props.img+'.jpg'}
+          src={BaseUrl+'/'+img+'.jpg'}
           className="cardImg"
         />
         <Card.Body className="cardSize">

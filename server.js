@@ -11,7 +11,7 @@ app.use(express.json())
 app.use(cors())
 
 app.get('/post/:id',query.getPost)
-app.get('/result',query.getResult)
+app.get('/result',query.getFilteredResult)
 app.get('/new_post/:type',query.getNewPost)
 app.get('/contact/:id',query.getContact)
 
