@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Col, Row, Container } from "react-bootstrap";
-import { useLocation,useParams } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 
 import SearchField from "./SearchField.js";
 import Filter from "./Filter.js";
@@ -15,24 +15,29 @@ const Result = () => {
   const date = new URLSearchParams(search).get("d");
   const zone = new URLSearchParams(search).get("z");
 
-  console.log(query,cat,date,zone)
-
   const [resultList, setResult] = useState(false);
 
+  let history = useHistory()
 
   useEffect(() => {
     async function fetchData() {
-      let url = BaseUrl+"/result"+"?q="+query+"&c="+cat
-      if (date){ url += "&d="+date}
-      if (zone){url += "&z="+zone}
-      const res = await fetch(
-        url
-      );
-      console.log(url)
+      let url = BaseUrl + "/result" + "?q=" + query + "&c=" + cat;
+      if (date) {
+        url += "&d=" + date;
+      }
+      if (zone) {
+        url += "&z=" + zone;
+      }
+      const res = await fetch(url);
       res.json().then((res) => setResult(res));
     }
-    if(query && cat){ fetchData() }
-  }, [query,cat,date,zone]);
+    if (query && cat) {
+      fetchData();
+    }
+    else{
+      history.push('/explore')
+    }
+  }, [query, cat, date, zone]);
 
   //result cards
 
@@ -49,15 +54,12 @@ const Result = () => {
           />
         );
       });
-    } 
-    else if(resultList && resultList.length == 0){
-      return(<div>no result</div>)
-    }
-    else {
+    } else if (resultList && resultList.length == 0) {
+      return <div>no result</div>;
+    } else {
       return <div>Start searching</div>;
     }
   };
-
 
   return (
     <div>

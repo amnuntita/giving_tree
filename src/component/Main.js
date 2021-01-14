@@ -6,6 +6,7 @@ import Result from "./pages/result/result.js";
 import Home from "./pages/home/home.js";
 import SignUp from "./pages/sign_up.js";
 import LogIn from './pages/log_in.js';
+import Explore from "./pages/explore/explore.js";
 
 import NavBar from "./shared/NavBar.js";
 
@@ -24,6 +25,7 @@ const Main = () => {
         <Route path='/signup' component={SignUp} />
         <Route path="/result" component={Result} />
         <Route path="/post/:postId" component={post_page} />
+        <Route path="/explore" component={Explore} />
         <Route path="/" component={Home} />
       </Switch>
     </Router>

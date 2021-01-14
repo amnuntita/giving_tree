@@ -50,7 +50,7 @@ const getFilteredResult = (req, res) => {
 
   let z = []
 
-  // convert selected zone into zone_id 
+  // convert selected zone array from 0-1 into zone_id 
   if(zone){
     for(i = 0; i < zone.length;i++){
       if(zone[i] === 1){
@@ -64,11 +64,11 @@ const getFilteredResult = (req, res) => {
   let table = ` FROM post P`;
   let where_clause = ` WHERE title LIKE $1 AND post_cat = $2`;
 
-  if (date && date != 0) {
+  if (date) {
     where_clause += ` AND date_posted >= (CURRENT_DATE - (INTERVAL '1' day) * $3)`;
     param.push(date);
   }
-  if (zone && z.length > 0) {
+  if (zone) {
     table += ` RIGHT JOIN post_zone PZ ON P.post_id = PZ.post_id`;
     where_clause += date ? ` AND zone_id = ANY($4)` : ` AND zone_id = ANY($3)`;
     param.push(z);
